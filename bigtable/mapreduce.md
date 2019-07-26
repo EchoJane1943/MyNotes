@@ -5,6 +5,8 @@
 
  https://blog.csdn.net/oopsoom/article/details/41356251
  
+ https://blog.csdn.net/lovelovelovelovelo/article/details/52304563
+ 
  由于一个map通常配置只有64MB或者128MB，则在Map阶段出现OOM的情况很少见。所以一般发生在reduce阶段。  
  map阶段oom：较少发生，发生解决办法：修改sql  
  reduce阶段oom：  
