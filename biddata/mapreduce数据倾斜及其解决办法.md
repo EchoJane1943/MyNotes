@@ -23,6 +23,8 @@ set hive.groupby.skewindata=true; 生成的查询计划会有两个MRjob
 2)在 key 上面做文章，在 map 阶段将造成倾斜的key 先分成多组，例如 aaa 这个 key,map 时随机在 aaa 后面加上 1,2,3,4 这四个数字之一，
 把 key 先分成四组，先进行一次运算，之后再恢复 key 进行最终运算。    
 
-3)能先进行 group 操作的时候先进行 group 操作，把 key 先进行一次 reduce,之后再进行 count 或者 distinct count 操作。   
+3)能先进行 group 操作的时候先进行 group 操作，把 key 先进行一次 reduce,之后再进行 count 或者 distinct count 操作。--针对2）   
 
 4)join 操作中，使用 map join 在 map 端就先进行 join ，免得到reduce 时卡住。
+
+5）left semi join 应用
