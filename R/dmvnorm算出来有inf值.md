@@ -4,6 +4,15 @@
 
 These functions provide the density function and a random number generator for the multivariate normal distribution with mean equal to mean and covariance matrix sigma.
 
+
+类比一维正态分布
+```
+> dnorm(1, mean = 0, sd = 1, log = FALSE)
+[1] 0.2419707
+> 1/sqrt(2*pi*1)*exp(-(1/2))
+[1] 0.2419707
+```
+
 ```
 dmvnorm(x, mean = rep(0, p), sigma = diag(p), log = FALSE)
 
