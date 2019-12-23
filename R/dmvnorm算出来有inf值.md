@@ -63,3 +63,21 @@ function (x, mean = rep(0, p), sigma = diag(p), log = FALSE)
 <bytecode: 0x7f8740efd188>
 <environment: namespace:mvtnorm>
 ```
+
+重点在这部分
+```
+dec <- tryCatch(chol(sigma), error = function(e) e)
+    if (inherits(dec, "error")) {
+        x.is.mu <- colSums(t(x) != mean) == 0
+        logretval <- rep.int(-Inf, nrow(x))
+        logretval[x.is.mu] <- Inf
+    }
+    else {
+        tmp <- backsolve(dec, t(x) - mean, transpose = TRUE)
+        rss <- colSums(tmp^2)
+        logretval <- -sum(log(diag(dec))) - 0.5 * p * log(2 * 
+            pi) - 0.5 * rss
+    }
+```
+
+其中，tryCatch是java中的异常处理机制，chol是Matlab函数，对矩阵进行Cholesky分解：如果矩阵X是对称正定的，则Cholesky分解将矩阵X分解成一个下三角矩阵和上三角矩阵的乘积。设上三角矩阵为R，则下三角矩阵为其转置，即X=R'R。
