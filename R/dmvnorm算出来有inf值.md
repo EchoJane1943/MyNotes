@@ -80,4 +80,4 @@ dec <- tryCatch(chol(sigma), error = function(e) e)
     }
 ```
 
-其中，tryCatch是java中的异常处理机制，chol是Matlab函数，对矩阵进行Cholesky分解：如果矩阵X是对称正定的，则Cholesky分解将矩阵X分解成一个下三角矩阵和上三角矩阵的乘积。设上三角矩阵为R，则下三角矩阵为其转置，即X=R'R。
+其中，tryCatch是java中的异常处理机制，chol是Matlab函数，对矩阵进行Cholesky分解：如果矩阵X是对称正定的，则Cholesky分解将矩阵X分解成一个下三角矩阵和上三角矩阵的乘积。设上三角矩阵为R，则下三角矩阵为其转置，即X=R'R。R=chol(X)：产生一个上三角阵R，使R'R=X。若X为非对称正定，则输出一个出错信息。
