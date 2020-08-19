@@ -4,6 +4,8 @@ https://www.zhihu.com/question/27593027/answer/248861446
 
 https://segmentfault.com/a/1190000009166436
 
+https://www.cnblogs.com/skyl/p/4855099.html
+
 * 产生原因
 
 1)group by  
