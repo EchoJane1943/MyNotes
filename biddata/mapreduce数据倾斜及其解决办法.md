@@ -28,3 +28,7 @@ set hive.groupby.skewindata=true; 生成的查询计划会有两个MRjob
 4)join 操作中，使用 map join 在 map 端就先进行 join ，免得到reduce 时卡住。
 
 5）left semi join 应用
+
+6）查询语句中某个关联字段null过多出现数据倾斜，可用解决办法：
+
+  select * from log a left outer join bmw_users b on case when a.user_id is null then concat('dp_hive',rand() ) else a.user_id end = b.user_id;
